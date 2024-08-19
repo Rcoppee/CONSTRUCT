@@ -71,7 +71,7 @@ To visualize this patch, you can use PyMOL:
 You can also open manually the pdb in pymol, then open color_conserved. 
 
 ## Domain-Specific Analysis 
-Let’s take DHFR as an example.
+Let’s take DHPS as an example.
 
 <div align="center">
   <img src="https://i.imgur.com/9YJpB4F.png" alt="Description de l'image" width="360" height="auto">
@@ -83,7 +83,7 @@ In the initial analysis, no specific boundaries were set, and the following patc
   <img src="https://i.imgur.com/qAAQLSg.png" alt="Description de l'image" width="360" height="auto">
 </div>
 
-This patch is located on the **HPPK domain** of the protein.
+This patch is located on the **PPPK domain** of the protein.
 
 If you want to focus on a specific part of the protein, such as the **DHPS domain**, you can define the boundaries for that domain, which in this case would be from positions 1 to 476.
 
