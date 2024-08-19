@@ -17,7 +17,7 @@ git clone https://github.com/Rcoppee/CONSTRUCT
 ```
 
 ```
-cd CONSTRUCT/Script/
+cd CONSTRUCT/
 python install_packages.sh
 ```
 
