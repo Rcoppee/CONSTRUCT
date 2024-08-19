@@ -1,14 +1,14 @@
-# Construct
+# CONSTRUCT
 
-Construct is a software tool designed to identify functional and structurally important sites in proteins by analyzing PDB files and sequence alignments, focusing on conserved amino acids across orthologous sequences from different species. It facilitates the detection of spatially conserved amino acid patches in 3D protein structures to study evolutionary conservation and protein function.
+CONSTRUCT is a software tool designed to identify functional and structurally important sites in proteins by analyzing PDB files and sequence alignments, focusing on conserved amino acids across orthologous sequences from different species. It facilitates the detection of spatially conserved amino acid patches in 3D protein structures to study evolutionary conservation and protein function.
 
 # Prerequisites
 - Linux Ubuntu 20.04 LTS (or higher)
-- Python v3.10.12 (or higher)
-- R v4.1.2 (or higher)
+- Python 3.10.12 (or higher)
+- R 4.1.2 (or higher)
 
 # Installation
-To make the program easier to use and install, once you have downloaded all the files from the repository, you will need to run the `packets_installation.sh` script. It will check and install, if necessary, the various packages/software the program needs to function correctly.
+To make the program easier to use and install, once you have downloaded all the files from the repository, you will need to run the `install_packages.sh` script. It will check and install, if necessary, the various packages/software the program needs to function correctly.
 
 You can easily download Construct and install all dependencies with the following commands:
 Via HTTPS link :
