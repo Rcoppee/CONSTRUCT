@@ -1,6 +1,6 @@
 # CONSTRUCT
 
-CONSTRUCT is a software tool designed to identify functional and structurally important sites in proteins by analyzing PDB files and sequence alignments, focusing on conserved amino acids across orthologous sequences from different species. It facilitates the detection of spatially conserved amino acid patches in 3D protein structures to study evolutionary conservation and protein function.
+CONSTRUCT is a software tool designed to identify functional and structurally important sites in proteins by searching amino acid sites evolving under strong purifying selection that cluster together in 3D structure.
 
 # Prerequisites
 - Linux Ubuntu 20.04 LTS (or higher)
@@ -8,9 +8,9 @@ CONSTRUCT is a software tool designed to identify functional and structurally im
 - R 4.1.2 (or higher)
 
 # Installation
-To make the program easier to use and install, once you have downloaded all the files from the repository, you will need to run the `install_packages.sh` script. It will check and install, if necessary, the various packages/software the program needs to function correctly.
+To make the program easier to use and install, once you have downloaded all the files from the repository, you will need to run the `install_packages.sh` script. It will check and, if necessary, install the various packages/software the program needs to function correctly.
 
-You can easily download Construct and install all dependencies with the following commands:
+You can easily download CONSTRUCT and install all dependencies with the following commands:
 Via HTTPS link :
 ```
 git clone https://github.com/Rcoppee/CONSTRUCT
@@ -27,39 +27,39 @@ Once installed, you can easily run the program with the following command:
 ```
 python CONSTRUCT.py
 ```
-A graphical interface will open (see the image below), where you will only need to fill in the requested information and start the execution.
+A graphical interface will open (see the figure below), where you only need to fill in the required information and start the execution.
 
 <div align="center">
   <img src="https://i.imgur.com/BhO6hyI.png" alt="Description de l'image" width="360" height="auto">
 </div>
 
 # Outputs
-Construct will generate three results files:
+CONSTRUCT generates three result files:
 
-- **spatial_rates.txt**: a file containing the spatial substitution rates of amino acids, ranked by their order.
-- **log_files.txt**: indicates whether a patch is present or not.
-- **color_conserved.pml**: a file that highlights the top 10% of conserved amino acids (for use with PyMOL).
+- **spatial_rates.txt**: a file containing the spatially correlated site-specific substitution rates of amino acid sites, ranked by their level of conservation.
+- **log_files.txt**: indicates whether a patch of conserved amino acid sites was detected in the protein structure (with the best window size and corresponding correlation strength).
+- **color_conserved.pml**: a file highlighting the top 10% of conserved amino acid sites (for use with PyMOL).
 # Examples
-## Keap1 
+## KEAP1 
 
-### Analyzing Keap1 Protein with Conservation Patches
+### Analyzing the KEAP1 propeller domain
 
-To analyze the Keap1 protein, you'll need two essential files:
+To analyze the KEAP1 propeller domain, two files must be submitted:
 
-1. **A FASTA File**: This file should contain all orthologous sequences aligned, with the reference sequence listed first.
-2. **PDB Files**: These files should be downloaded from the Protein Data Bank for the structure of Keap1.
+1. **A fasta file**: This file should contain an alignment of orthologous sequences with the reference sequence listed first.
+2. **A PDB file**: This file should contain the Cartesian coordinates of the protein structure (in this example we hase used the PDB ID: 2FLU).
 
 <div align="center">
   <img src="https://i.imgur.com/cGATiCe.png" width="360" height="auto">
 </div>
 
-Once you have these files, you can proceed by running the post-processing tool. After the process completes, you'll see a score representing the conservation patch, which indicates regions of the protein that are highly conserved across species. For example, you might observe a log score of 248.44, which highlights the significance of the patch detected.
+Once you have submitted these files, you can proceed by running the post-processing tool. When the process is complete, you'll see a score representing the strength of the correlation in site-specific substitution rates (a value > 8 indicates the presence of a patch of conserved amino acid sites). In this example, using the side-chain orientation option as Cartesian coordinates, you might observe a log score of 74.63, which is > 8, indicating the presence of a patch of conserved amino acid sites (corresponding to the surface interface with Nrf2, the substrate of KEAP1).
 
 To visualize this patch, you can use PyMOL:
 
 1. Open PyMOL.
 2. Go to "File" and select "Open."
-3. Load the `color_conserved.pml` file that was generated.
+3. Load the generated `color_conserved.pml` file.
    
 <div align="center">
   <img src="https://i.imgur.com/Ec7KpZ6.png" alt="Description de l'image" width="360" height="auto">
@@ -67,10 +67,10 @@ To visualize this patch, you can use PyMOL:
  
 
 
-/!\ If you move the pdb files after running Construct, you'll have to change the first line of color_conserved.pml since the first line look line this : load {pdb_file_path}/XXXX.pdb
-You can also open manually the pdb in pymol, then open color_conserved. 
+/!\ If you move the PDB file after running CONSTRUCT, you'll have to change the first line of color_conserved.pml, because the first line is: load {pdb_file_path}/my_pdb.pdb (where my_pdb.pdb is your PDB file).
+You can also manually open the PDB file in PyMOL then open color_conserved.pml. 
 
-## Domain-Specific Analysis 
+## Domain-specific analysis 
 Let’s take DHPS as an example.
 
 <div align="center">
