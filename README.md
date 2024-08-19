@@ -83,16 +83,16 @@ In the initial analysis, no specific boundaries were set, and the following patc
   <img src="https://i.imgur.com/qAAQLSg.png" alt="Description de l'image" width="360" height="auto">
 </div>
 
-This patch is located on the **PPPK domain** of the protein.
+This patch is located on the **DHPS domain** of the protein.
 
-If you want to focus on a specific part of the protein, such as the **DHPS domain**, you can define the boundaries for that domain, which in this case would be from positions 1 to 476.
+If you want to focus on a specific part of the protein, such as the **PPPK domain**, you can define the boundaries for that domain, which in this case would be from position 1 to 386.
 
 <div align="center">
   <img src="https://i.imgur.com/KMQP8Dj.png" alt="Description de l'image" width="360" height="auto">
 </div>
 
 
-After specifying these boundaries, the resulting patch looks like this:
+After specifying these boundaries, a patch of conserved amino acid sites was specifically detected in the PPPK domain:
 
 <div align="center">
   <img src="https://i.imgur.com/GTs9EPf.png" alt="Description de l'image" width="360" height="auto">
@@ -102,9 +102,9 @@ After specifying these boundaries, the resulting patch looks like this:
 
 
 # Tutorial
-A video tutorial has been created for easy installation and execution of Construct:  **LIEN VIDEO**
+A video tutorial has been created for easy installation and execution of CONSTRUCT:  **LIEN VIDEO**
 
 # Citation
 **CONSTRUCT: an algorithmic tool for identifying functional or structurally important regions in protein tertiary structure**
 
-Lucas Chivot, Antoine Bridier-Nahmias, Jérôme Clain, Romain Coppée
+Lucas Chivot, Antoine Bridier-Nahmias, Loic Favennec, Jérôme Clain, Romain Coppée
