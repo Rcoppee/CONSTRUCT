@@ -354,7 +354,7 @@ write.table(log_files, "log_files.txt", sep = "\t", col.names = FALSE,
 best_length_str = paste("Best_length =", best_length)
 
 # Préparer la chaîne conditionnelle pour la présence de patch
-patch_presence_str <- if (log_files > 8) "Presence of a patch of conserved amino acid sites" else "No patch of conserved amino acid sites detected"
+patch_presence_str <- if (log_files > 8) "Patch of conserved amino acid sites detected" else "No patch of conserved amino acid sites detected"
 
 # Ouvrir le fichier en mode append pour ajouter les chaînes
 file_conn <- file("log_files.txt", open = "a")  # Ouvrir en mode 'append'
