@@ -102,7 +102,7 @@ After specifying these boundaries, a patch of conserved amino acid sites was spe
 
 
 # Tutorial
-A video tutorial has been created for easy installation and execution of CONSTRUCT:  **LIEN VIDEO**
+A video tutorial has been created for easy installation and execution of CONSTRUCT:  **[LIEN VIDEO]https://www.youtube.com/watch?v=bf-VYReZIeM&t=10s)**
 
 # Citation
 **CONSTRUCT: an algorithmic tool for identifying functional or structurally important regions in protein tertiary structure**
