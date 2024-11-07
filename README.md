@@ -107,4 +107,4 @@ A video tutorial has been created for easy installation and execution of CONSTRU
 # Citation
 **CONSTRUCT: an algorithmic tool for identifying functional or structurally important regions in protein tertiary structure**
 
-Lucas Chivot, Antoine Bridier-Nahmias, Loic Favennec, Jérôme Clain, Romain Coppée
+Lucas Chivot, Antoine Bridier-Nahmias, Loic Favennec, Jean-Christophe Gelly, Jérôme Clain, Romain Coppée
