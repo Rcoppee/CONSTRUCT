@@ -6,6 +6,12 @@ CONSTRUCT is a software tool designed to identify functional and structurally im
 - Linux Ubuntu 20.04 LTS (or higher)
 - Python 3.10.12 (or higher)
 - R 4.1.2 (or higher)
+```
+sudo apt install r-base-core
+sudo apt install python3-pip
+sudo apt install git
+```
+
 
 # Installation
 To make the program easier to use and install, once you have downloaded all the files from the repository, you will need to run the `install_packages.sh` script. It will check and, if necessary, install the various packages/software the program needs to function correctly.
@@ -107,4 +113,4 @@ A video tutorial has been created for easy installation and execution of CONSTRU
 # Citation
 **CONSTRUCT: an algorithmic tool for identifying functional or structurally important regions in protein tertiary structure**
 
-Lucas Chivot, Antoine Bridier-Nahmias, Loic Favennec, Jean-Christophe Gelly, Jérôme Clain, Romain Coppée
+Lucas Chivot, Noé Mathieux, Anna Cosson, Antoine Bridier-Nahmias, Loic Favennec, Jean-Christophe Gelly, Jérôme Clain, Romain Coppée
