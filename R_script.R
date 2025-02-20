@@ -1,28 +1,32 @@
 #!/usr/bin/env Rscript
 
+options(warn=-1)
+
+
 # Récupérer les arguments de la ligne de commande
 args <- commandArgs(trailingOnly = TRUE)
 
 # Vérifier si un argument a été fourni
-if (length(args) == 0) {
+if (length(args) < 2) {
   stop("Aucun argument fourni.")
 }
 
 # Extraire le premier argument
-argument <- args[1]
+my_orientation <- args[1]
+my_proportion <- as.numeric(args[2])
+
 
 #######################################
 ###### IMPORTATION OF LIBRAIRIES ######
 #######################################
 
-library(readr)
-library(dplyr)
-library(msa)
-library(bio3d)
+library(readr, quietly = TRUE)
+library(dplyr, quietly = TRUE)
+library(msa, quietly = TRUE)
+library(bio3d, quietly = TRUE)
 #library(ggplot2)
 #library(ggprism)
 #library(scatterplot3d)
-
 
 ###############################
 ###### LIST OF FUNCTIONS ######
@@ -189,9 +193,9 @@ calpha <- calpha %>%
   )
 
 # Vérifier la valeur de l'argument et afficher le message approprié
-if (argument == "carbone_alpha") {
+if (my_orientation == "carbone_alpha") {
   center_of_mass = calpha
-} else if (argument == "lateral_chain") {
+} else if (my_orientation == "lateral_chain") {
   
 } else {
   cat("Argument non reconnu\n")
@@ -293,7 +297,7 @@ for(my_distance in 1:20){
     all_data_update$rank[pos] = pos/nrow(all_data_update)*100
   }
   
-  top10percent = all_data_update[all_data_update$rank<=10,]
+  top10percent = all_data_update[all_data_update$rank<=my_proportion,]
 
   #get coordinates of the 10% most conserved sites
   for_center_of_mass = top10percent[,3:5]
@@ -311,9 +315,9 @@ for(my_distance in 1:20){
 
   #generate two vectors of distance, consisting of the 10% most conserved sites
   #and the other sites
-  distance_10percent = all_data_update[all_data_update$rank<=10,]
+  distance_10percent = all_data_update[all_data_update$rank<=my_proportion,]
   distance_10percent = c(distance_10percent$distance_com)
-  distance_90percent = all_data_update[all_data_update$rank>10,]
+  distance_90percent = all_data_update[all_data_update$rank>my_proportion,]
   distance_90percent = c(distance_90percent$distance_com)
   
   #mann_whitney = wilcox.test(distance_10percent,distance_90percent) 
@@ -350,15 +354,22 @@ log_files = max(log_pval_data$log_pval)
 write.table(log_files, "log_files.txt", sep = "\t", col.names = FALSE,
             row.names = FALSE, quote = FALSE)
 
+
 # Préparer la chaîne à écrire pour best_length
-best_length_str = paste("Best_length =", best_length)
+my_orientation_str = paste("The analysis was based on:", my_orientation)
+my_proportion_str = paste("The proportion of most conserved sites you chose:", my_proportion)
+
+# Préparer la chaîne à écrire pour best_length
+best_length_str = paste("The length that optimized the spatial correlation of site-specific substitution rates was:", best_length)
 
 # Préparer la chaîne conditionnelle pour la présence de patch
-patch_presence_str <- if (log_files > 8) "Patch of conserved amino acid sites detected" else "No patch of conserved amino acid sites detected"
+patch_presence_str <- if (log_files > 8) "A patch of conserved amino acid sites was detected" else "A patch of conserved amino acid sites was not detected"
 
 # Ouvrir le fichier en mode append pour ajouter les chaînes
 file_conn <- file("log_files.txt", open = "a")  # Ouvrir en mode 'append'
 
+writeLines(my_orientation_str, file_conn)
+writeLines(my_proportion_str, file_conn)
 writeLines(best_length_str, file_conn)
 writeLines(patch_presence_str, file_conn)
 
@@ -366,7 +377,7 @@ writeLines(patch_presence_str, file_conn)
 close(file_conn)
 
 
-pos_10_percent = all_data[all_data[, 8] < 10, 1]
+pos_10_percent = all_data[all_data[, 8] < my_proportion, 1]
 write.table(pos_10_percent, "top10percent.txt", sep = "\t", col.names = T,
             row.names = F, quote = F)
 
