@@ -53,10 +53,11 @@ def min_max_bounds(min_bound, max_bound, chain_choice, output_file):
 def execute_R():
     """ Executes the Rscript to compute spatially correlated site-specific substitution rates. """
     r_script_path = os.path.join(os.path.dirname(__file__), "R_script.R")
+    proportion = slider_value
     if orientation_var.get() == "Side-chain orientation":
-        subprocess.run(["Rscript", r_script_path, "lateral_chain"])
+        subprocess.run(["Rscript", r_script_path, "lateral_chain", str(proportion)])
     elif orientation_var.get() == "Alpha-carbon":
-         subprocess.run(["Rscript", r_script_path, "carbone_alpha"])
+         subprocess.run(["Rscript", r_script_path, "carbone_alpha", str(proportion)])
 
 def pymol(chain):
     """ Produces a file to be read in PyMOL to show the conserved patch of amino acid sites. """
@@ -165,6 +166,11 @@ def get_unique_directory_name2(base_name):
     return unique_name
 
 
+def show_value(value):
+    label.configure(text=f"Selected: {int(float(value))}%")
+    global slider_value
+    slider_value = int(value)  # Stocker la valeur actuelle du slider
+    
 def execute():
     """ Executes the pipeline. """
     os.chdir(os.path.dirname(__file__))
@@ -377,17 +383,39 @@ orientation_var = tk.StringVar(value="Side-chain orientation")
 
 # Frame for the radio buttons
 radio_frame = ctk.CTkFrame(bottom_frame)
-radio_frame.grid(row=0, column=0, pady=5)
+radio_frame.grid(row=1, column=0, pady=5)
+
+# Ajouter une étiquette explicative au-dessus du slider
+instruction_label1 = ctk.CTkLabel(radio_frame, text="Perform the search using:",  width=400,font=("Arial", 12, "bold"))
+instruction_label1.grid(row=0, column=0, columnspan=2, pady=(0, 10), sticky="n")
 
 # Radio buttons
 radio_button1 = ctk.CTkRadioButton(radio_frame, text="Side-chain orientation", variable=orientation_var, value="Side-chain orientation")
-radio_button1.grid(row=0, column=0, padx=5)
+radio_button1.grid(row=1, column=0, padx=5)
 
 radio_button2 = ctk.CTkRadioButton(radio_frame, text="Alpha-carbon", variable=orientation_var, value="Alpha-carbon")
-radio_button2.grid(row=0, column=1, padx=5)
+radio_button2.grid(row=1, column=1, padx=5)
+
+# Ajouter une étiquette explicative au-dessus du slider
+instruction_label = ctk.CTkLabel(radio_frame, text="Select the proportion of most \nconserved sites for searching patch", font=("Arial", 12, "bold"))
+instruction_label.grid(row=3, column=0, columnspan=2, pady=(30, 0), sticky="n")
+
+# Ajouter une étiquette pour afficher la valeur sélectionnée
+label = ctk.CTkLabel(radio_frame, text="Selected: 10%", font=("Arial", 14))
+label.grid(row=4, column=0, columnspan=2, pady=(10,0), sticky="n")
+
+# Ajouter le slider
+slider = ctk.CTkSlider(radio_frame, from_=5, to=20, command=show_value)
+slider.set(10)  # Définir la valeur initiale
+slider_value = 10
+slider.grid(row=5, column=0, columnspan=2, sticky="ew", padx=10, pady=10)
+
+# Frame for the run button
+button_frame = ctk.CTkFrame(bottom_frame)
+button_frame.grid(row=2, column=0, pady=10, padx=10)
 
 # Run button
-run_button = ctk.CTkButton(bottom_frame, text="Run post-processing", command=execute)
-run_button.grid(row=1, column=0, pady=10)
+run_button = ctk.CTkButton(button_frame, text="Run post-processing", command=execute)
+run_button.grid(row=0, column=0, pady=10, padx=10)
 
 root.mainloop()
