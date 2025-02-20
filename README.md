@@ -57,7 +57,7 @@ To analyze the KEAP1 propeller domain, two files must be submitted:
 2. **A PDB file**: This file should contain the Cartesian coordinates of the protein structure (in this example we hase used the PDB ID: 2FLU).
 
 <div align="center">
-  <img src="https://i.imgur.com/cGATiCe.png" width="360" height="auto">
+  <img src="https://i.imgur.com/oO1zRb0.png" width="360" height="auto">
 </div>
 
 Once you have submitted these files, you can proceed by running the post-processing tool. When the process is complete, you'll see a score representing the strength of the correlation in site-specific substitution rates (a value > 8 indicates the presence of a patch of conserved amino acid sites). In this example, using the side-chain orientation option as Cartesian coordinates, you might observe a log score of 74.63, which is > 8, indicating the presence of a patch of conserved amino acid sites (corresponding to the surface interface with Nrf2, the substrate of KEAP1).
