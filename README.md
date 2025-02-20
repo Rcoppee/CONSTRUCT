@@ -81,7 +81,7 @@ You can also manually open the PDB file in PyMOL then open color_conserved.pml.
 Let’s take DHPS as an example.
 
 <div align="center">
-  <img src="https://i.imgur.com/9YJpB4F.png" alt="Description de l'image" width="360" height="auto">
+  <img src="https://i.imgur.com/0bPguCR.png" alt="Description de l'image" width="360" height="auto">
 </div>
 
 In the initial analysis, no specific boundaries were set, and the following patch was identified:
@@ -95,7 +95,7 @@ This patch is located on the **DHPS domain** of the protein.
 If you want to focus on a specific part of the protein, such as the **PPPK domain**, you can define the boundaries for that domain, which in this case would be from position 1 to 386.
 
 <div align="center">
-  <img src="https://i.imgur.com/KMQP8Dj.png" alt="Description de l'image" width="360" height="auto">
+  <img src="https://i.imgur.com/8ZNqLpv.png" alt="Description de l'image" width="360" height="auto">
 </div>
 
 
