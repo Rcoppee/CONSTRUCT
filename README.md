@@ -36,7 +36,8 @@ python CONSTRUCT.py
 A graphical interface will open (see the figure below), where you only need to fill in the required information and start the execution.
 
 <div align="center">
-  <img src="https://i.imgur.com/BhO6hyI.png" alt="Description de l'image" width="360" height="auto">
+  <img src="https://imgur.com/a/MkEG5Sf" alt="Description de l'image" width="360" height="auto">
+  
 </div>
 
 # Outputs
