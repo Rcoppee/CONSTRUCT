@@ -19,7 +19,7 @@
 | Tool           | Minimum Version | Recommended | Notes |
 |----------------|------------------|-------------|-------|
 | **Python**     | 3.7              | 3.10+       | Required for GUI (`customtkinter`) |
-| **R**          | 4.1.0            | 4.1.2       | Ensures CRAN binary compatibility |
+| **R**          | 4.1.0            | 4.1.2+      | Ensures CRAN binary compatibility |
 | **Homebrew**   | —                | Latest      | Required for macOS dependency handling |
 
 #### Linux quick setup
