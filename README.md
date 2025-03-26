@@ -1,44 +1,84 @@
 # CONSTRUCT
 
-CONSTRUCT is a software tool designed to identify functional and structurally important sites in proteins by searching amino acid sites evolving under strong purifying selection that cluster together in 3D structure.
+**CONSTRUCT** is a software tool designed to identify functional and structurally important sites in proteins by detecting amino acid sites evolving under strong purifying selection that cluster together in 3D structure.
 
-# Prerequisites
-- Linux Ubuntu 20.04 LTS (or higher)
-- Python 3.10.12 (or higher)
-- R 4.1.2 (or higher)
+---
+
+## ✅ Prerequisites
+
+> 🧪 Tested on macOS 15 (Sequoia, Apple Silicon - M3)
+
+### 🖥️ Operating System
+- **macOS** (Apple Silicon — M1/M2/M3)
+  - Minimum macOS 11 (Big Sur)
+  - Not compatible with Intel Macs at the moment
+- **Linux**
+  - Ubuntu 20.04 LTS or later (Debian-based systems supported)
+
+### 🔢 Software Requirements
+| Tool           | Minimum Version | Recommended | Notes |
+|----------------|------------------|-------------|-------|
+| **Python**     | 3.7              | 3.10+       | Required for GUI (`customtkinter`) |
+| **R**          | 4.1.0            | 4.1.2       | Ensures CRAN binary compatibility |
+| **Homebrew**   | —                | Latest      | Required for macOS dependency handling |
+
+#### Linux quick setup
+```bash
+sudo apt install r-base-core python3-pip git
 ```
-sudo apt install r-base-core
-sudo apt install python3-pip
-sudo apt install git
-```
 
+---
 
-# Installation
-To make the program easier to use and install, once you have downloaded all the files from the repository, you will need to run the `install_packages.sh` script. It will check and, if necessary, install the various packages/software the program needs to function correctly.
+## 📦 What gets installed
 
-You can easily download CONSTRUCT and install all dependencies with the following commands:
-Via HTTPS link :
-```
+All of the following dependencies are installed **automatically** by the script:
+
+### Python
+- `customtkinter`
+
+### R
+- `tidyverse`
+- `readr`
+- `dplyr`
+- `bio3d`
+- `msa` (and its Bioconductor dependencies)
+
+### System tools
+- `rate4site` (compiled from source)
+- Compilation tools (`gcc`, `make`, etc.)
+
+---
+
+## 🚀 Installation
+
+After downloading the files from the repository, run the installer script. It will verify and install all dependencies.
+
+### Download & Install
+```bash
 git clone https://github.com/Rcoppee/CONSTRUCT
-```
-
-```
 cd CONSTRUCT/
 bash install_packages.sh
 ```
 
-# Usage
-Once installed, you can easily run the program with the following command:
+---
 
-```
+## 🧪 Usage
+
+To launch the program:
+```bash
 python CONSTRUCT.py
 ```
-A graphical interface will open (see the figure below), where you only need to fill in the required information and start the execution.
+
+A graphical interface will open:
 
 <div align="center">
-  <img src="https://i.imgur.com/NZetcyL.png" alt="Description de l'image" width="360" height="auto">
-  
+  <img src="https://i.imgur.com/NZetcyL.png" alt="GUI preview" width="360" height="auto">
 </div>
+
+Just fill in the necessary fields and click **"Run post-processing"** to start the analysis.
+
+---
+
 
 # Outputs
 CONSTRUCT generates three result files:
