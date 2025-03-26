@@ -5,6 +5,14 @@ import subprocess
 import os
 import shutil
 import sys
+import platform
+
+def get_rate4site_path():
+    """Return the appropriate path to rate4site based on the OS."""
+    if platform.system() == "Darwin":
+        return "/opt/homebrew/bin/rate4site"
+    else:
+        return "/usr/bin/rate4site"
 
 def clean_r4s(input_file, output_file):
     """ Cleans rate4site output removing lines starting with # and empty lines. """
@@ -126,8 +134,9 @@ def run_rate4site():
     result_folderpath = os.path.join(os.path.dirname(__file__))
     print(result_folderpath)
 
-    rate4site_command = f"/usr/bin/rate4site -s {filepath} -bn -o {result_folderpath}/results.txt"
-
+    rate4site_path = get_rate4site_path()
+    rate4site_command = f"{rate4site_path} -s {filepath} -bn -o {result_folderpath}/results.txt"
+    
     full_command = f"cd {result_folderpath} && {rate4site_command}"
 
     process = subprocess.Popen(full_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, bufsize=1)
