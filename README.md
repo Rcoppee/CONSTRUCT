@@ -66,7 +66,7 @@ bash install_packages.sh
 
 To launch the program:
 ```bash
-python CONSTRUCT.py
+python3 CONSTRUCT.py
 ```
 
 A graphical interface will open:
